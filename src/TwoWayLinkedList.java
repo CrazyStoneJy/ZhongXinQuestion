@@ -4,9 +4,18 @@ public class TwoWayLinkedList implements IList {
 
 
     private int size = 0;
-    private Node head, tail;
+    // the head of this two-way linked list.
+    private Node head;
+    // the tail of this two-way linked list.
+    private Node tail;
 
 
+    /**
+     * check the linked list whether or not contain this element
+     *
+     * @param value the element that u want to check.
+     * @return
+     */
     @Override
     public boolean contains(int value) {
         Node current = head;
@@ -19,16 +28,29 @@ public class TwoWayLinkedList implements IList {
         return false;
     }
 
+    /**
+     * check the linked list whether or not empty.
+     *
+     * @return
+     */
     @Override
     public boolean isEmpty() {
         return size() == 0;
     }
 
+    /**
+     * the size of linked list.
+     *
+     * @return
+     */
     @Override
     public int size() {
         return this.size;
     }
 
+    /**
+     * this function is used to change the two-way linked list state that one by one.
+     */
     public void change() {
         if (head == null) {
             System.out.println("the head element of the list is null");
@@ -49,18 +71,30 @@ public class TwoWayLinkedList implements IList {
             }
             pre = current;
             current = current.next;
-            if(current==null) {
+            if (current == null) {
                 break;
             }
             next = current.next;
         }
     }
 
-
+    /**
+     * this function is used to exclusive or two elements.
+     *
+     * @param a element a
+     * @param b element b
+     * @return
+     */
     private int xor(int a, int b) {
         return a ^ b;
     }
 
+    /**
+     * get the index of element in the linked list.
+     *
+     * @param value
+     * @return
+     */
     @Override
     public int indexOf(int value) {
         int index = -1;
@@ -75,6 +109,14 @@ public class TwoWayLinkedList implements IList {
         return index;
     }
 
+    /**
+     * this function is used to add an element to two-way linked list.
+     * u can set state 0 or 1,present 【活跃状态】
+     * if u want to add element with default state,u can invoke{@link #add(int)}
+     *
+     * @param value this is index of the linked list, just to distinguish an element.
+     * @param state the state of the element.
+     */
     public void add(int value, int state) {
         if (contains(value)) {
             System.out.println("this list already has " + value);
@@ -99,11 +141,22 @@ public class TwoWayLinkedList implements IList {
         size++;
     }
 
+    /**
+     * add an element with default state. default state is zero.
+     * u can add element state,by this function {@link #add(int, int)}
+     *
+     * @param value
+     */
     @Override
     public void add(int value) {
         this.add(value, 0);
     }
 
+    /**
+     * if the element is contain in the linked list, remove it.
+     *
+     * @param value
+     */
     @Override
     public void remove(int value) {
         Node current = head;
@@ -137,6 +190,9 @@ public class TwoWayLinkedList implements IList {
         }
     }
 
+    /**
+     * clear the linked list
+     */
     @Override
     public void clear() {
         head = null;
@@ -144,6 +200,9 @@ public class TwoWayLinkedList implements IList {
         size = 0;
     }
 
+    /**
+     * this function is used to print linked list.
+     */
     public void print() {
         Node current = head;
         StringBuilder sb = new StringBuilder();
@@ -168,11 +227,17 @@ public class TwoWayLinkedList implements IList {
         System.out.println(sb);
     }
 
+    /**
+     * the data structure of Node
+     */
     private static class Node {
-
+        /* the value fo node */
         private int value;
+        /* previous element */
         private Node pre;
+        /* the next element */
         private Node next;
+        /* the state of this element */
         private int state;
         private Random random = new Random();
 
