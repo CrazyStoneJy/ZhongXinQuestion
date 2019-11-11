@@ -206,22 +206,23 @@ public class TwoWayLinkedList implements IList {
     public void print() {
         Node current = head;
         StringBuilder sb = new StringBuilder();
-        // head
-        sb.append("head:").append(head != null ? head.value : "null")
-                //tail
-                .append(";tail:").append(tail != null ? tail.value : "null").append("\n");
-        sb.append("size:").append(size).append("\n");
+//        // head
+//        sb.append("head:").append(head != null ? head.value : "null")
+//                //tail
+//                .append(";tail:").append(tail != null ? tail.value : "null").append("\n");
+//        sb.append("size:").append(size).append("\n");
 
         while (current != null) {
-            //current
-            sb.append("current:").append(current.value)
-                    .append(",state:").append(current.state)
-                    .append("(")
-                    .append("pre:").append(current.pre != null ? current.pre.value : "null")
-                    .append(";")
-                    .append("next:").append(current.next != null ? current.next.value : "null")
-                    .append(")")
-                    .append("->");
+//            //current
+//            sb.append("current:").append(current.value)
+//                    .append(",state:").append(current.state)
+//                    .append("(")
+//                    .append("pre:").append(current.pre != null ? current.pre.value : "null")
+//                    .append(";")
+//                    .append("next:").append(current.next != null ? current.next.value : "null")
+//                    .append(")")
+//                    .append("->");
+            sb.append(current.state);
             current = current.next;
         }
         System.out.println(sb);

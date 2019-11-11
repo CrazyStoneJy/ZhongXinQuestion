@@ -1,4 +1,4 @@
-import java.util.List;
+import java.util.Random;
 
 public class Question {
 
@@ -16,25 +16,16 @@ public class Question {
 
 
         TwoWayLinkedList linkedList = new TwoWayLinkedList();
+        Random random = new Random();
 
-        // if want to add element u can invoke add();
-        linkedList.add(1, 0);
-        linkedList.add(3, 1);
-//        linkedList.add(4);
-//        linkedList.add(5);
-//        linkedList.add(6);
+        for (int i = 0; i < 8; i++) {
+            linkedList.add(i + 1, random.nextBoolean() ? 1 : 0);
+        }
         linkedList.print();
-
-//        linkedList.remove(2);
-//        linkedList.print();
-//
-//        linkedList.remove(4);
-//        linkedList.print();
 
         System.out.println(">>>>>>>>>change>>>>>>>>>");
         linkedList.change();
         linkedList.print();
-
 
     }
 
